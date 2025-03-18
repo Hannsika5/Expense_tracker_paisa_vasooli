@@ -1,5 +1,5 @@
-mport mongoose from "mongoose";
-
+import mongoose from "mongoose";
+ 
 const savingSchema = new mongoose.Schema({
     userId:{
         type:String,
@@ -17,5 +17,7 @@ const savingSchema = new mongoose.Schema({
         type:String
     }
 },{timestamps: true})
+
+
 
 export default mongoose.model("Saving",savingSchema)

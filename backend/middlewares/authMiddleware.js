@@ -16,7 +16,7 @@ export const authmiddleware = async (req, res, next) => {
                 // Find the user based on decoded token's ID
                 req.user = await User.findById(decode.id).select('-password');
              
-                // Proceed to the next middleware
+                // Proceed to the next function
                 next();
             } catch (error) {
                 // Token verification failed

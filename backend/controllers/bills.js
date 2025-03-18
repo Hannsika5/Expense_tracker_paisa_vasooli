@@ -1,3 +1,4 @@
+import bills from "../models/bills.js";
 import  billSchema from "../models/bills.js";
 
 //controllers for bills and dues
@@ -17,6 +18,17 @@ export const addBill = async(req,res)=>{
     console.log(bill)
 
 }
+// client gave req.cookies values to server inside the req object
+// client req the server 
+// req is object 
+// req.header req.method req.body req.query req.params
+//  server access  req.body by ?
+// simple detructure :)  
+// shikhar:{ power: age: facevalue: }
+// method1: - shikhar.power shikhar.age 
+// method2:- {power,age,facevalue}=shikhar (destructuring)
+// req.cookies ? 
+
 
 export const getBills = async(req,res)=>{
     const userId= req.params.userId;
@@ -46,6 +58,7 @@ export const editBill = async(req,res)=>{
 
     }
 }
+
 export const deleteBill = async(req,res)=>{
     try{
         const bill = await billSchema.findByIdAndDelete(req.params.id);

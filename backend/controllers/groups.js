@@ -72,6 +72,7 @@ export const joingroup = async(req,res)=>{
 export const getgroups = async(req,res)=>{
     const userId= req.params.id;
     // console.log(req.params.userId)
+    // user -> 10 groups 
     try{
         console.log(userId)
         const userr = await user.findById(userId)
@@ -137,6 +138,7 @@ export const splitBill = async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+
 export const markPaid = async (req, res) => {
     // Group id
     const id = req.params.id;
@@ -165,6 +167,7 @@ export const markPaid = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 export const markApproved = async (req, res) => {
     // Group id
     const id = req.params.id;

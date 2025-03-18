@@ -23,8 +23,9 @@ const billSchema = new mongoose.Schema({
     dueDate:{
         type:Date,
     }
-
-
 },{timestamps: true})
+
+// daily weekly 
+// curr date  , date when last email was sent / the date when the bill was made
 
 export default mongoose.model("Bill",billSchema)

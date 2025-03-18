@@ -1,4 +1,5 @@
 import User from "../models/user.js"
+
 export const sendRequest = async(req,res)=>{
     // console.log(req.params,req.body)
     const {userId} = req.params
@@ -17,7 +18,7 @@ export const sendRequest = async(req,res)=>{
       }
   
       // Check if the sender has already sent a request to the receiver
-      if (friendUser.receivedRequests.includes(username)) {
+      if (friendUser.sentRequests.includes(username)) {
         return res.json({ message: 'You have already sent a request to this user' });
       }
 
