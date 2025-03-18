@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 dotenv.config();
 import { validationResult } from "express-validator";
+
  
 const jwtSecret=process.env.JWT
 export const ErrorMessage = (status,message)=>{
@@ -21,6 +22,10 @@ export const signup = async (req, res, next) => {
 
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
+// abcd -> asodfiasodfhoh234232
+// abcdshikhar -> werbisbaohaosbf23424
+// bcrypt-> lib 
+
 
     // Check if the email is already in use
     const existingUserEmail = await User.findOne({ email: req.body.email });
@@ -31,10 +36,15 @@ export const signup = async (req, res, next) => {
 
     // Check if the username is already in use
     const existingUsername = await User.findOne({ username: req.body.username });
+
     if (existingUsername) {
       console.log("Username already in use");
       return res.status(400).json({ success: false, message: "Username is already in use." });
     }
+
+    // ... spread operator 
+    // shikhar:{a;b;c} 
+    // {a,b,c}=shikhar
 
     const newUser = await User.create({ ...req.body, password: hash });
     console.log("New User Created:", newUser);
@@ -42,6 +52,7 @@ export const signup = async (req, res, next) => {
       {
         res.status(404).json({message:"User can't be created try again"})
       }
+      
     const token = jwt.sign({ userId: newUser._id, username: newUser.username }, jwtSecret);
     newUser.token = token;
 

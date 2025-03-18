@@ -28,4 +28,5 @@ const transactionSchema = new mongoose.Schema({
     
 },{timestamps: true})
 
+// neg Pos -> expense / income 
 export default mongoose.model("Transaction",transactionSchema)

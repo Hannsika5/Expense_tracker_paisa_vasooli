@@ -24,4 +24,11 @@ const groupSchema = new mongoose.Schema({
     }
 },{timestamps: true})
 
+
+// every schema gets id from mongodb 
+// Group code is defined as specialized set of characters 
+// it is diff from group id ( backend )
+// { sender : , msg: }
+
+
 export default mongoose.model("Group",groupSchema)

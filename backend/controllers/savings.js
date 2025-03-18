@@ -6,7 +6,6 @@ export const addSaving = async(req,res)=>{
 
     const saving = savingSchema(
         req.body.saving
-
     )
 
     try{
@@ -42,6 +41,7 @@ export const editSaving = async(req,res)=>{
         console.log(err)
     }
 }
+
 export const deleteSaving = async(req,res)=>{
     try{
         const saving = await savingSchema.findByIdAndDelete(req.params.id);

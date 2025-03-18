@@ -23,10 +23,12 @@ const userSchema = new mongoose.Schema({
         type:[Object],
     },
     groups:{
-        type:[String],
+        type:[String], 
+        // group ids  userid-> groups->[adfa,adfadsf,asdfasdfasd,asdfasdf]
     },
     friends:{
         type:[String]
+        // [asdfa,asdfas,asdfasdf] ids
     },
     sentRequests:{
         type:[String]
@@ -35,11 +37,19 @@ const userSchema = new mongoose.Schema({
         type:[String]
     },
     inbox:{
-        type:[String]
-    },
+        type:[String]   
+
+        // array of ids -> diff users who gave friend request
+   },
     image:{
         type: String,
         default:null
+        // img will be uploaded to cloud ( cloudinery )
+        // photos u directly upload to database ( disadv ? => It will occupy space )-> how to optimise ?
+        // Upload photo / files to cloud 
+        // cloud ?
+        // cloud is third party service ( it does the above job ) in return what will it give to the website ?
+        // url -> to load photos etc on my website
     },
     badges:{
         type:[String]
