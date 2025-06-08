@@ -25,7 +25,10 @@ const app = express();
 dotenv.config();
 
 //Middleware
-app.use(cors())
+app.use(cors({
+  origin: "https://expense-tracker-paisa-vasooli.vercel.app",
+  credentials: true
+}));
 app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
